@@ -1,12 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import AppRouter from './Router';
+import { StyledEngineProvider } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-   
+    <StyledEngineProvider injectFirst>
+          <div>
+   <AppRouter/>
     </div>
+    </StyledEngineProvider>
+
   );
 }
 
