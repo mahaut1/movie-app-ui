@@ -1,6 +1,9 @@
 import { en } from "./en";
 export const fr: typeof en = {
 translation: {
+    error: {
+        defaultMessage: 'Une erreur est survenue, veuillez réessayer plus tard',
+      },
     navBar: {
         home: 'Accueil', 
         movies: 'Films',
