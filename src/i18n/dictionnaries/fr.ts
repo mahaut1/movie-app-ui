@@ -13,5 +13,10 @@ title: "Mon application de films",
 description:
 "Recherchez et parcourez les films de la base de données TMDB"
 },
+movies: {
+    searchBar: {
+    placeholder: "Rechercher des films...",
+    },
+    },
 },
 };
