@@ -5,8 +5,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./i18n"
-// enables i18n
-import "./i18n";
+import { container } from "tsyringe";
+import { EnvService } from "./service/envService";
+
+container.resolve(EnvService)
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
