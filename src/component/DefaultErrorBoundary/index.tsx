@@ -4,16 +4,14 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useTranslation } from "react-i18next";
 import { i18nMap } from "../../i18n/map";
 
-export default function DefaultErrorBoundary({ children }: PropsWithChildren<{}>) {
+type Props = PropsWithChildren;
+
+export default function DefaultErrorBoundary({ children }: Props) {
   const { t } = useTranslation();
 
   return (
     <ErrorBoundary
-      fallbackRender={({ error, resetErrorBoundary }) => (
-        <Typography>
-          {t(i18nMap.error.defaultMessage)} {/* Translated error message */}
-        </Typography>
-      )}
+      fallback={<Typography>{t(i18nMap.error.defaultMessage)}</Typography>}
     >
       {children}
     </ErrorBoundary>

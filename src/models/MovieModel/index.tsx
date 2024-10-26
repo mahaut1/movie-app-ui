@@ -30,6 +30,7 @@ export class MovieModel {
         ) {}
         // Static method to convert a DTO to the MovieModel
         public static fromDto(dto: MovieDto): MovieModel {
+          console.log("DTO Received:", dto);
         return new MovieModel(
         dto.id,
         dto.original_language,
@@ -42,10 +43,14 @@ export class MovieModel {
         dto.vote_average,
         dto.vote_count
         );
+        console.log("MovieModel Created:", MovieModel);
+
         }
         // Static method to validate the object and return a MovieM
         public static validate(obj: unknown): MovieModel {
+          console.log("Object to validate:", obj);
         const movie = this.schema.parse(obj);
+        console.log("Validated Movie:", movie);
         return new MovieModel(
             movie.id,
             movie.originalLanguage,
@@ -68,13 +73,13 @@ export class MovieModel {
             public static readonly fallbackImageUrl = `/images/movie-fallback.png`;
 
             public getPosterUrl(): string {
-              if (!this.posterPath) return MovieModel.fallbackImageUrl;
-          
+              console.log("Poster path:", this.posterPath);
+              if (!this.posterPath)  return MovieModel.fallbackImageUrl;
+              console.log("Using fallback image");
               const isPathStartingWithSlash = this.posterPath?.startsWith("/");
               const pathWithoutStartingSlash = isPathStartingWithSlash
                 ? this.posterPath.substring(1)
                 : this.posterPath;
-          
               return `${
                 container.resolve(TmdbApiService).imageUrlBase
               }/${pathWithoutStartingSlash}`;

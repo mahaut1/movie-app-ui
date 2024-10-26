@@ -4,6 +4,7 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import classes from "./classes.module.css";
 import DefaultErrorBoundary from "../../component/DefaultErrorBoundary";
+
 export function DefaultTemplate() {
 const location = useLocation();
 const route = location.pathname;

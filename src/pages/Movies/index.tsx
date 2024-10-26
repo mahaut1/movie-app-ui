@@ -15,7 +15,10 @@ export default function Movies() {
   const { searchMoviesQueryResult: searchMoviesResponse } =
     useSearchMoviesQuery(searchTerm, currentLang);
   const movies = searchMoviesResponse.data?.results ?? ([] as MovieModel[]);
-
+  console.log('SearchMoviesResponse:', searchMoviesResponse);
+  if (searchMoviesResponse.isLoading) return <div>Loading...</div>;
+if (searchMoviesResponse.isError) return <div>Error loading movies</div>;
+console.log('Error:', searchMoviesResponse.error);
   return (
     <Box>
       <SearchBar
